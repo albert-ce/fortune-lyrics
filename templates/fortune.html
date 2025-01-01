@@ -1,0 +1,14 @@
+<div class="fortune-message" id="fortune-message">
+    <p class="lyrics">
+        {% for line in ('"'+fortune_data.verses+'"').split('\n') %}
+        {{ line }}<br>
+        {% endfor %}
+    </p>
+    <p class="info">- {{fortune_data.track_name}} by {{fortune_data.artist}}</p>
+</div>
+<div class="cookie" id="cookie" onclick="click_cookie()">
+    <div class="left" id="left"></div>
+    <div class="right" id="right"></div>
+</div>
+<p id="tap">Tap to open!!</p>
+<img id="new" onclick="new_fortune();" src="{{ url_for('static', filename='img/refresh.svg')}}" alt="New cookie">

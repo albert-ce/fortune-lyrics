@@ -1,0 +1,23 @@
+{% extends './layout.html' %}
+
+{% block profile %}
+<div class="profile">
+    <div class="profile-data">
+        <img class="profile-picture" src="{{profile_data.image_url}}" alt="Profile Picture">
+        <span class="username">@{{profile_data.username}}</span>
+    </div>
+    <span class="logout" onclick="logout()">Logout</span>
+</div>
+{% endblock %}
+
+{% block content %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        first_fortune();
+    });
+</script>
+<section id="content">
+    <span id="loading"></span>
+    <div class="loader"></div>
+</section>
+{% endblock %}

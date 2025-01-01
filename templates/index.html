@@ -1,0 +1,12 @@
+{% extends './layout.html' %}
+{% block content %}
+<section>
+    <p>
+        Hi! Want to hear <span class="accent-green">random lyrics</span> from your favorite Spotify songs?
+        <br> Fortune Lyrics turns them into <span class="accent-gold">'fortune cookie'</span> messages just for you!
+    </p>
+    <button class="connect-button" onclick="connect_spotify()">
+        <img src="{{ url_for('static', filename='img/music_cast.svg')}}" alt="Music Icon"> CONNECT TO SPOTIFY
+    </button>
+</section>
+{% endblock %}

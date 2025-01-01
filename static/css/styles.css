@@ -1,0 +1,209 @@
+@keyframes moveBackground {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 100% 1000%;
+    }
+}
+
+body {
+    margin: 0;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    background-color: #0d1117;
+    background-image: url('../img/bg.svg');
+    background-size: 5em 5em;
+    background-repeat: repeat;
+    animation: moveBackground 100s linear infinite;
+}
+
+header {
+    display: flex;
+    margin-top: 2em;
+    justify-content: center;
+    align-items: center;
+    min-height: 20vh;
+    z-index: 2;
+}
+
+header h1 {
+    font-family: "Orbit", serif;
+    font-size: 3em;
+    font-weight: 700;
+}
+
+.logo {
+    font-size: 2.7em;
+    color: black;
+}
+
+.noto-color-emoji,
+.material-symbols-outlined {
+    position: relative;
+}
+
+.noto-color-emoji {
+    font-family: "Noto Color Emoji", serif;
+    bottom: -0.2em;
+    left: -1.2em;
+}
+
+.noto-emoji {
+    font-family: "Noto Emoji", serif;
+}
+
+.material-symbols-outlined {
+    background-color: #16d560;
+    border-radius: 100%;
+    padding: 0.2em;
+    font-size: 0.7em;
+    top: -0.2em;
+    right: -1.4em;
+}
+
+section {
+    margin: 2em auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 1;
+    row-gap: 2em;
+}
+
+p {
+    max-width: 60vw;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+.accent-green {
+    font-weight: 600;
+    color: #16d560;
+}
+
+.accent-gold {
+    font-weight: 600;
+    color: #f3b142;
+}
+
+.connect-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    column-gap: 0.8em;
+    font-weight: 700;
+    font-size: 1em;
+    padding: 0.5em 1em;
+    border: 0;
+    border-radius: 1em;
+    background-color: #16d560;
+    color: black;
+}
+
+.connect-button img {
+    width: 2em;
+    height: 2em;
+}
+
+.connect-button:hover {
+    cursor: pointer;
+}
+
+footer {
+    position: fixed;
+    bottom: 0.5em;
+    left: 50%;
+    transform: translate(-50%);
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.8em;
+    font-style: normal;
+}
+
+footer * {
+    color: rgba(255, 255, 255, 0.3);
+    font-style: normal;
+}
+
+@media (max-width: 1200px) {
+    .logo {
+        font-size: 2.3em;
+    }
+
+    p {
+        font-size: 1.1em;
+    }
+
+    .connect-button {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        margin-top: 4em;
+        min-height: 15vh;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    .logo {
+        font-size: 2em;
+    }
+
+    p {
+        max-width: 70vw;
+        font-size: 1em;
+    }
+
+    .connect-button {
+        font-size: 0.8em;
+        padding: 0.4em 0.8em;
+    }
+
+    .connect-button img {
+        width: 1.7em;
+        height: 1.7em;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        margin-top: 6em;
+        min-height: 12vh;
+    }
+
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    .logo {
+        font-size: 1.8em;
+    }
+
+    p {
+        max-width: 70vw;
+        font-size: 0.9em;
+    }
+
+    .connect-button {
+        font-size: 0.75em;
+        padding: 0.3em 0.6em;
+    }
+
+    .connect-button img {
+        width: 1.5em;
+        height: 1.5em;
+    }
+
+    footer {
+        font-size: 0.6em;
+    }
+}

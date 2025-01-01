@@ -1,0 +1,264 @@
+.profile {
+    position: fixed;
+    top: 1em;
+    right: 1em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    column-gap: 1em;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0.5em;
+    border-radius: 2em;
+    background-color: #16d560;
+    width: auto;
+    height: auto;
+}
+
+.logout {
+    color: #16d560;
+    text-align: center;
+    font-size: 0.8em;
+    font-weight: 600;
+}
+
+.logout:hover {
+    cursor: pointer;
+}
+
+.username {
+    padding: 0.5em 0.5em;
+    color: black;
+    text-align: center;
+    font-size: 0.8em;
+    font-weight: 600;
+}
+
+.profile-picture {
+    height: 1.8em;
+    padding: 0.5em 0em;
+    border-radius: 100%;
+}
+
+.loader {
+    border: 0.5em solid rgba(255, 255, 255, 0.2);
+    border-top: 0.5em solid white;
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#loading {
+    font-weight: 600;
+}
+
+.fortune-message {
+    background-color: white;
+    padding: 0.5em 2.5em;
+    display: none;
+}
+
+.lyrics,
+.info {
+    font-size: 1.3em;
+    font-family: "Charm", serif;
+    color: black;
+    text-align: justify;
+}
+
+.info {
+    font-size: 1em;
+    color: grey;
+    text-align: right;
+}
+
+.left {
+    position: fixed;
+    left: 50%;
+    height: 14em;
+    width: 14em;
+    transform: translate(-50%);
+    background-image:
+        radial-gradient(ellipse 50% 60% at -20% 40%, rgba(255, 255, 255, 0.5) 40%, transparent 90%),
+        linear-gradient(to top, transparent 47%, #f3b142 55%),
+        radial-gradient(ellipse 50% 60% at center left, transparent 70%, rgb(156, 84, 22, 0.421) 100%, transparent 100%),
+        linear-gradient(to top, transparent 50%, #f3b142 50%),
+        radial-gradient(ellipse 50% 60% at center left, #f3b142 100%, transparent 100%);
+    border-radius: 100%;
+    clip-path: polygon(0% 0%, 0% 99%, 50% 99%, 50% 50%, 55% 37.5%, 45% 25%, 55% 12.5%, 45% 0%);
+}
+
+.right {
+    position: fixed;
+    right: 50%;
+    height: 14em;
+    width: 14em;
+    transform: translateX(49%);
+    background-image:
+        radial-gradient(ellipse 50% 60% at 120% 40%, rgb(156, 84, 22, 0.5) 40%, transparent 90%),
+        linear-gradient(to top, transparent 47%, #f3b142 55%),
+        radial-gradient(ellipse 50% 60% at center right, transparent 70%, rgba(255, 255, 255, 0.421) 100%, transparent 100%),
+        linear-gradient(to top, transparent 50%, #f3b142 50%),
+        radial-gradient(ellipse 50% 60% at center right, #f3b142 100%, transparent 100%);
+    border-radius: 100%;
+    clip-path: polygon(50% 50%, 55% 37.5%, 45% 25%, 55% 12.5%, 45% 0%, 100% 0%, 100% 99%, 50% 99%);
+}
+
+.cookie {
+    height: 14em;
+    width: 14em;
+    animation: tingle 1s ease-in-out infinite;
+}
+
+@keyframes tingle {
+    0% {
+        transform: translateX(0) rotate(0);
+    }
+
+    15% {
+        transform: translateX(-6px) rotate(-5deg);
+    }
+
+    30% {
+        transform: translateX(6px) rotate(5deg);
+    }
+
+    45% {
+        transform: translateX(-4px) rotate(-3deg);
+    }
+
+    60% {
+        transform: translateX(4px) rotate(3deg);
+    }
+
+    75% {
+        transform: translateX(-2px) rotate(-1deg);
+    }
+
+    90% {
+        transform: translateX(2px) rotate(1deg);
+    }
+
+    100% {
+        transform: translateX(0) rotate(0);
+    }
+}
+
+@keyframes breakRight {
+    0% {}
+
+    100% {
+        transform: translateX(65%) translateY(-5%) rotate(-10deg);
+    }
+}
+
+@keyframes breakLeft {
+    0% {}
+
+    100% {
+        transform: translateX(-70%) translateY(-10%) rotate(15deg);
+    }
+}
+
+
+@keyframes disappearRight {
+    0% {
+        transform: translateX(75%) translateY(-5%) rotate(-10deg);
+    }
+
+    100% {
+        height: 0;
+        width: 0;
+        transform: translateX(100vw) translateY(-20vw) rotate(500deg);
+    }
+}
+
+@keyframes disappearLeft {
+    0% {
+        transform: translateX(-70%) translateY(-15%) rotate(10deg);
+    }
+
+    100% {
+        height: 0;
+        width: 0;
+        transform: translateX(-100vw) translateY(-20vw) rotate(-500deg);
+    }
+}
+
+@keyframes appearMessage {
+    0% {
+        transform: scale(0.8);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes appearRefresh {
+    0% {
+        transform: rotate(0);
+    }
+
+    50% {
+        transform: rotate(-40deg);
+    }
+
+    100% {
+        transform: rotate(0);
+    }
+}
+
+#new {
+    margin-top: 1em;
+    display: none;
+    width: 2.5em;
+    height: 2.5em;
+}
+
+#new:hover {
+    cursor: pointer;
+}
+
+@media (max-width: 480px) {
+    .username {
+        font-size: 0.7em;
+    }
+
+    .profile-picture {
+        height: 0.8em;
+        border-radius: 100%;
+    }
+
+    .cookie,
+    .cookie * {
+        width: 12em;
+        height: 12em;
+    }
+
+    .fortune-message * {
+        font-size: 0.9em;
+        ;
+    }
+
+    #loading {
+        font-size: 0.9em;
+    }
+}
