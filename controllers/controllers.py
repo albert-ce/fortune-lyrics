@@ -6,7 +6,7 @@ auth = Blueprint('auth', __name__)
 home = Blueprint('home', __name__)
 fortune = Blueprint('fortune', __name__)
 spotify = SpotifyService()
-genius = LyricsService()
+lyrics = LyricsService()
 
 @auth.route('/auth/login')
 def login():
@@ -43,7 +43,7 @@ def connect():
 @fortune.route('/fortune/generate_new')
 def generate_new():
     saved_songs = spotify.get_saved_songs()
-    session['fortune'] = genius.get_random_verses(saved_songs)
+    session['fortune'] = lyrics.get_random_verses(saved_songs)
     return Response(status=204)
 
 @fortune.route('/fortune/get_fortune')
