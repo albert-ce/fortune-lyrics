@@ -1,9 +1,9 @@
 import os
 import re
 import random
+import requests
 import secrets
 import spotipy
-import lyricsgenius
 from time import time
 from spotipy.oauth2 import SpotifyOAuth
 from spotipy.cache_handler import CacheHandler
@@ -69,22 +69,32 @@ class SpotifyService:
 
 class LyricsService:
     def __init__(self):
-        self._genius_client = lyricsgenius.Genius(os.getenv('GENIUS_ACCESS_TOKEN'), verbose=False)
         self.n_verses=2
+        self.lyrics_api_url = os.getenv('LYRICS_API_URL')
+
+    def _search_song(self, track_name, artist):
+        try:
+            response = requests.get(self.lyrics_api_url.format(artist=artist, track_name=track_name), timeout=0.5)
+            response.raise_for_status()
+            data = response.json()
+            return data
+        except:
+            return {}
 
     def _get_random_lyrics(self, songs):
-        song = None
-        while not song:  # Retry until a song is found in Genius (not all songs are available)
+        data = {}
+        while 'lyrics' not in data:  # Retry until a song is found (not all songs are available)
             random_track = random.choice(songs)['track']
             track_name = random_track['name']
             artist = random_track['artists'][0]['name']
 
-            song = self._genius_client.search_song(track_name, artist)
+            data = self._search_song(track_name, artist)
 
-        lyrics = song.lyrics
+        lyrics = data['lyrics']
         return lyrics, track_name, artist
     
     def _get_fortune_verses(self, lyrics):
+        lyrics = re.sub('\n\n','\n',lyrics)
         # Remove [section labels] and (chorus)
         lyrics = re.sub(' *[\[\(].*?[\]\)]','',lyrics)
         lyrics = re.sub('\n\n+','\n\n',lyrics)
