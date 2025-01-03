@@ -6,7 +6,7 @@ async function logout() {
     window.location.href = "/auth/logout";
 }
 
-async function first_fortune(){
+async function first_fortune() {
     document.getElementById('loading').innerHTML = "Loading...";
     await fetch('/fortune/generate_new');
     var response = await fetch('/fortune/get_fortune');
@@ -16,6 +16,7 @@ async function first_fortune(){
 
 async function click_cookie() {
     fetch('/fortune/generate_new');
+    document.getElementById('cookie').onclick = "";
     document.getElementById('cookie').style.animation = "none";
     document.getElementById('tap').style.display = 'none';
     document.getElementById('right').style.animation = "breakRight 0.01s 0.01s linear forwards";
@@ -32,7 +33,7 @@ async function click_cookie() {
     document.getElementById('new').style.display = 'block';
 }
 
-async function new_fortune(){
+async function new_fortune() {
     var response = await fetch('/fortune/get_fortune');
     var responseTxt = await response.text()
     document.getElementById('content').innerHTML = responseTxt;
